@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: 001a7316872aefb4aa4320c97a270ec0
+timeCreated: 1510834488
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: as_costume_lingerie_body
+    100004: as_costume_lingerie_boots
+    100006: as_costume_lingerie_crook
+    100008: as_costume_lingerie_glove
+    100010: as_costume_lingerie_helmet
+    100012: as_costume_lingerie_leg
+    100014: as_costume_lingerie_scimitar_weapon
+    100016: Bip01 Head_assassin
+    100018: Bip01 L Calf_assassin
+    100020: Bip01 L Clavicle_assassin
+    100022: Bip01 L Finger0_assassin
+    100024: Bip01 L Foot_assassin
+    100026: Bip01 L Forearm_assassin
+    100028: Bip01 L Hand_assassin
+    100030: Bip01 L Thigh_assassin
+    100032: Bip01 L Toe0_assassin
+    100034: Bip01 L UpperArm_assassin
+    100036: Bip01 Neck_assassin
+    100038: Bip01 Pelvis_assassin
+    100040: Bip01 R Calf_assassin
+    100042: Bip01 R Clavicle_assassin
+    100044: Bip01 R Finger0_assassin
+    100046: Bip01 R Foot_assassin
+    100048: Bip01 R Forearm_assassin
+    100050: Bip01 R Hand_assassin
+    100052: Bip01 R Thigh_assassin
+    100054: Bip01 R Toe0_assassin
+    100056: Bip01 R UpperArm_assassin
+    100058: Bip01 Spine1_assassin
+    100060: Bip01 Spine_assassin
+    100062: Bip01_assassin
+    100064: BoxBone01_assassin
+    100066: BoxBone02_assassin
+    100068: BoxBone03_assassin
+    100070: Dummy003_assassin
+    100072: Dummy004_assassin
+    100074: Dummy01_assassin
+    100076: Dummy02_assassin
+    400000: //RootNode
+    400002: as_costume_lingerie_body
+    400004: as_costume_lingerie_boots
+    400006: as_costume_lingerie_crook
+    400008: as_costume_lingerie_glove
+    400010: as_costume_lingerie_helmet
+    400012: as_costume_lingerie_leg
+    400014: as_costume_lingerie_scimitar_weapon
+    400016: Bip01 Head_assassin
+    400018: Bip01 L Calf_assassin
+    400020: Bip01 L Clavicle_assassin
+    400022: Bip01 L Finger0_assassin
+    400024: Bip01 L Foot_assassin
+    400026: Bip01 L Forearm_assassin
+    400028: Bip01 L Hand_assassin
+    400030: Bip01 L Thigh_assassin
+    400032: Bip01 L Toe0_assassin
+    400034: Bip01 L UpperArm_assassin
+    400036: Bip01 Neck_assassin
+    400038: Bip01 Pelvis_assassin
+    400040: Bip01 R Calf_assassin
+    400042: Bip01 R Clavicle_assassin
+    400044: Bip01 R Finger0_assassin
+    400046: Bip01 R Foot_assassin
+    400048: Bip01 R Forearm_assassin
+    400050: Bip01 R Hand_assassin
+    400052: Bip01 R Thigh_assassin
+    400054: Bip01 R Toe0_assassin
+    400056: Bip01 R UpperArm_assassin
+    400058: Bip01 Spine1_assassin
+    400060: Bip01 Spine_assassin
+    400062: Bip01_assassin
+    400064: BoxBone01_assassin
+    400066: BoxBone02_assassin
+    400068: BoxBone03_assassin
+    400070: Dummy003_assassin
+    400072: Dummy004_assassin
+    400074: Dummy01_assassin
+    400076: Dummy02_assassin
+    2300000: as_costume_lingerie_scimitar_weapon
+    3300000: as_costume_lingerie_scimitar_weapon
+    4300000: as_costume_lingerie_body
+    4300002: as_costume_lingerie_boots
+    4300004: as_costume_lingerie_glove
+    4300006: as_costume_lingerie_helmet
+    4300008: as_costume_lingerie_crook
+    4300010: as_costume_lingerie_scimitar_weapon
+    4300012: as_costume_lingerie_leg
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: as_costume_lingerie_body
+    13700002: as_costume_lingerie_boots
+    13700004: as_costume_lingerie_crook
+    13700006: as_costume_lingerie_glove
+    13700008: as_costume_lingerie_helmet
+    13700010: as_costume_lingerie_leg
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 2
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 2
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

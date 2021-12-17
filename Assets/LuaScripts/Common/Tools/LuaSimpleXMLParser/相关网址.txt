@@ -1,0 +1,5 @@
+GitHub网址：
+https://github.com/Cluain/Lua-Simple-XML-Parser
+
+CSDN教程：
+https://blog.csdn.net/czhenya/article/details/105506253
