@@ -33,7 +33,7 @@ local UIModule = {
 	--模块描述
 	ExamRoleTitle=require "UI.ExamRoleTitle.ExamRoleTitleConfig",
 	--模块描述
-	-- UIChangeServer=require "UI.UIChangeServer.UIChangeServerConfig",
+	 UIChangeServer=require "UI.UIChangeServer.UIChangeServerConfig",
 	--模块描述
 	NewUILogin=require "UI.NewUILogin.NewUILoginConfig",
 	--AppendCode

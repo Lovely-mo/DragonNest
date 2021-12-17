@@ -14,7 +14,7 @@ local function OnCreate(self)
 	-- self:AddPreloadResource(UIConfig[UIWindowNames.UILogin].PrefabPath, typeof(CS.UnityEngine.GameObject), 1)
 	-- self:AddPreloadResource(UIConfig[UIWindowNames.UILoginServer].PrefabPath, typeof(CS.UnityEngine.GameObject), 1)
 	self:AddPreloadResource(UIConfig[UIWindowNames.NewUILogin].PrefabPath, typeof(CS.UnityEngine.GameObject), 1)
-	self:AddPreloadResource(UIConfig[UIWindowNames.UILoginServer].PrefabPath, typeof(CS.UnityEngine.GameObject), 1)
+	self:AddPreloadResource(UIConfig[UIWindowNames.UIChangeServer].PrefabPath, typeof(CS.UnityEngine.GameObject), 1)
 end
 
 -- 准备工作
