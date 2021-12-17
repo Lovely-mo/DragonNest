@@ -79,6 +79,7 @@ local function Connect(self, host_ip, host_port, on_connect, on_close)
 end
 
 local function SendMessage(self, msg_id, msg)
+print(1)
     local msg_bytes = nil
     if (msg) then
         msg_bytes = msg:SerializeToString() --把pb序列化为字节数组

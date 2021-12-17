@@ -43,6 +43,8 @@ local UIWindowNames = {
 	ExamRoleTitle = "ExamRoleTitle",
 	--模块描述
 	UIChangeServer = "UIChangeServer",
+	--模块描述
+	NewUILogin = "NewUILogin",
 	--AppendCode
 
 }
