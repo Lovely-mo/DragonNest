@@ -8,20 +8,20 @@ local function RegisterMsg()
     --TODO:在这里添加具体的消息回调处理事件
 
     
-    DataManager:GetInstance():AddListener(MsgIDDefine.QueryGateArg, MsgCallBackHandler.Handle_QueryGateArg)
+     DataManager:GetInstance():AddListener(MsgIDDefine.QueryGateArg, MsgCallBackHandler.Handle_QueryGateArg)
     DataManager:GetInstance():AddListener(MsgIDDefine.ErrorInfo, MsgCallBackHandler.Handle_ErrorInfo)
     DataManager:GetInstance():AddListener(MsgIDDefine.LoginChallenge, MsgCallBackHandler.Handle_LoginChallenge)
     DataManager:GetInstance():AddListener(MsgIDDefine.LoginRes, MsgCallBackHandler.Handle_LoginRes)
     DataManager:GetInstance():AddListener(MsgIDDefine.SelectRoleNew, MsgCallBackHandler.Handle_SelectRoleNewRes)
     DataManager:GetInstance():AddListener(MsgIDDefine.IBGiftIcon, MsgCallBackHandler.Handle_IBGiftIcon)
 
-    DataManager:GetInstance():AddListener(MsgIDDefine.NotifyStartUpTypeToClient, MsgCallBackHandler.Handle_NotifyStartUpTypeToClient)
-    DataManager:GetInstance():AddListener(MsgIDDefine.SceneCfg, MsgCallBackHandler.Handle_SceneCfg)
-    DataManager:GetInstance():AddListener(MsgIDDefine.Systems, MsgCallBackHandler.Handle_Systems)
-    DataManager:GetInstance():AddListener(MsgIDDefine.SelectRoleNtfData, MsgCallBackHandler.Handle_SelectRoleNtfData)
-    DataManager:GetInstance():AddListener(MsgIDDefine.ChatNotify, MsgCallBackHandler.Handle_ChatNotify)  
+    -- DataManager:GetInstance():AddListener(MsgIDDefine.NotifyStartUpTypeToClient, MsgCallBackHandler.Handle_NotifyStartUpTypeToClient)
+    -- DataManager:GetInstance():AddListener(MsgIDDefine.SceneCfg, MsgCallBackHandler.Handle_SceneCfg)
+    -- DataManager:GetInstance():AddListener(MsgIDDefine.Systems, MsgCallBackHandler.Handle_Systems)
+    -- DataManager:GetInstance():AddListener(MsgIDDefine.SelectRoleNtfData, MsgCallBackHandler.Handle_SelectRoleNtfData)
+    -- DataManager:GetInstance():AddListener(MsgIDDefine.ChatNotify, MsgCallBackHandler.Handle_ChatNotify)  
 
-    DataManager:GetInstance():AddListener(MsgIDDefine.WorldChannelLeftTimesNtf, MsgCallBackHandler.Handle_WorldChannelLeftTimesNtf)
+    -- DataManager:GetInstance():AddListener(MsgIDDefine.WorldChannelLeftTimesNtf, MsgCallBackHandler.Handle_WorldChannelLeftTimesNtf)
 
     --DataManager:GetInstance():AddListener(MsgIDDefine.GetDesignationReq, MsgCallBackHandler.Handle_GetDesignationReq)
     

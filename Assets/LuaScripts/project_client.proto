@@ -2848,7 +2848,7 @@ enum BackFlowActOp{
 }
 
 message LoadAccountData{
-	optional string account = 1;  ///ºÍÏò·þÎñÆ÷·¢µÄloginArgÏûÏ¢ÀïµÄopenidÒ»ÖÂ
+	optional string account = 1;  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½loginArgï¿½ï¿½Ï¢ï¿½ï¿½ï¿½openidÒ»ï¿½ï¿½
 	optional bytes role1 = 2;
 	optional bytes role2 = 3;
 	optional bytes role3 = 4;
@@ -2928,11 +2928,11 @@ message SyncTimeArg{
 message SyncTimeRes{
 	optional int64 serverTime = 1;
 }
-///¿Í»§¶ËÏò·þÎñÆ÷·¢ËÍµÄÎ»ÖÃ  ½Ç¶È  ËÙ¶È¡¢ºÍ¹ßÐÔ
+///ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Î»ï¿½ï¿½  ï¿½Ç¶ï¿½  ï¿½Ù¶È¡ï¿½ï¿½Í¹ï¿½ï¿½ï¿½
 message MoveInfo{
-	optional int32 Common = 1;///½Ç¶È  ËÙ¶È¡¢ºÍ¹ßÐÔ
-	optional int32 PosXZ = 2;  //µ±Ç°Î»ÖÃ
-	optional int32 DesXZ = 3;//Ä¿±êÎ»ÖÃ
+	optional int32 Common = 1;///ï¿½Ç¶ï¿½  ï¿½Ù¶È¡ï¿½ï¿½Í¹ï¿½ï¿½ï¿½
+	optional int32 PosXZ = 2;  //ï¿½ï¿½Ç°Î»ï¿½ï¿½
+	optional int32 DesXZ = 3;//Ä¿ï¿½ï¿½Î»ï¿½ï¿½
 }
 
 message SkillDataUnit{
@@ -2951,7 +2951,7 @@ message SkillReplyDataUnit{
 	optional uint64 BulletExtraID = 6;
 }
 
-///·þÎñÆ÷ÍÆËÍ£¬½øÈëµÄ³¡¾°id
+///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½id
 message SceneCfg{
 	optional uint32 SceneID = 1;
 	optional int32 SyncMode = 2;
@@ -3179,9 +3179,9 @@ message DecomposeEquipmentRes{
 	repeated float param = 2;
 }
 
-///¶ÏÏßºó£¬µ÷ÁËÖØÐÂÁ¬½Ó·½·¨£¬ÄÇÃ´Á¬½ÓÉÏÊÕµ½Õâ¸öLoginChallengeÏûÏ¢ºó£¬
-//ÐèÒª·¢ReconnArgÏûÏ¢¸øserver,´ø×ÅÉÏ´Î¶ÏÏßÇ°µÄsession£¬
-///sceneidºÍroleid ·¢ÆðÖØÁ¬ÇëÇó
+///ï¿½ï¿½ï¿½ßºó£¬µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½LoginChallengeï¿½ï¿½Ï¢ï¿½ï¿½
+//ï¿½ï¿½Òªï¿½ï¿½ReconnArgï¿½ï¿½Ï¢ï¿½ï¿½server,ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Î¶ï¿½ï¿½ï¿½Ç°ï¿½ï¿½sessionï¿½ï¿½
+///sceneidï¿½ï¿½roleid ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 message ReconnArg{
 	
 	optional uint64 session = 1;
@@ -3529,7 +3529,7 @@ message QueryGateRes{
 	optional PlatNotice notice = 9;
 	optional ErrorCode error = 10;
 	optional PlatBanAccount baninfo = 11;
-	optional bool freeflow = 12;  //ÊÇ·ñÃâÁ÷Á¿
+	optional bool freeflow = 12;  //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	optional int32 cctype = 13;
 	repeated PlatFriendServer platFriendServers = 14;
 	repeated uint32 bespeakserverids = 15;
@@ -3880,7 +3880,7 @@ message LoginArg{
 	optional string ios = 3;
 	optional string android = 4;
 	optional string pc = 5;
-	optional string openid = 6;  //ÄÚ²¿ÕËºÅ´«µÄa456456,µ«ºÃÏñ´«É¶¶¼ÐÐ
+	optional string openid = 6;  //ï¿½Ú²ï¿½ï¿½ËºÅ´ï¿½ï¿½ï¿½a456456,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¶ï¿½ï¿½ï¿½ï¿½
 	optional ClientInfo clientInfo = 7;
 	optional uint32 loginzoneid = 8;
 }
@@ -4622,7 +4622,7 @@ message PvpArg{
 	optional PvpReqType type = 1;
 }
 
-///¸÷ÖÖ¶ÔÏóµÄ¶¯×÷µÄÍ¬²½Êý¾Ý
+///ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 message StepSyncInfo{
 	repeated StepSyncData DataList = 1;
 	optional uint32 StepFrame = 2;
@@ -4938,12 +4938,12 @@ message GetGuildQADataRes{
 	optional uint32 status = 2;
 	optional uint32 time = 3;
 }
-///´´½¨½ÇÉ«·¢ËÍ
+///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½
 message CreateRoleNewArg{
 	optional RoleType type = 1;
 	optional string name = 2;
 }
-///·µ»Ø
+///ï¿½ï¿½ï¿½ï¿½
 message CreateRoleNewRes{
 	optional ErrorCode result = 1;
 	optional RoleAllInfo roleData = 2;
@@ -4959,9 +4959,9 @@ message MulActivityRes{
 	optional ErrorCode errcode = 3;
 }
 
-///Ñ¡Ôñ½ÇÉ«ºó·¢ËÍ
+///Ñ¡ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½
 message SelectRoleNewArg{
-	optional int32 index = 1;  ///´Ó0¿ªÊ¼µÄË÷Òý
+	optional int32 index = 1;  ///ï¿½ï¿½0ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 message SelectRoleNewRes{
@@ -12322,13 +12322,13 @@ message StepSyncData{
 	optional uint64 EntityID = 2;
 	optional int32 Skillid = 3;
 	optional int32 HitIdx = 4;
-	optional uint64 OpposerID = 5; ///¹¥»÷Ä¿±ê
+	optional uint64 OpposerID = 5; ///ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
 	optional bool HitForceToFly = 6;
 	optional int32 HitParalyzeFactor = 7;
 	optional bool PresentInFreezed = 8;
 	optional bool FreezedFromHit = 9;
 	optional bool Passive = 10;
-	optional int32 Common = 11;  ///data.Common >> 12 & 15  ´ÓÓÒ±ßÊý13---16´æµÄÊÇ×´Ì¬ÀàÐÍ
+	optional int32 Common = 11;  ///data.Common >> 12 & 15  ï¿½ï¿½ï¿½Ò±ï¿½ï¿½ï¿½13---16ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½
 	optional int32 Velocity = 12;
 	optional int32 SkillCommon = 13;
 }

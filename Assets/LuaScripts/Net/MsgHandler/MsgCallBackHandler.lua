@@ -12,6 +12,9 @@ local MsgIDMap = require("Net/Config/MsgIDMap")
 
 local SpriteTable=require("Config.Data.SpriteTable")
 
+
+
+
 ---------------连接成功的回调函数-------------------
 local function OnConnect(self, sender, result, msg)
     Logger.Log("连接结果" .. result)
@@ -24,77 +27,77 @@ end
 local function OnClose(self, sender, result, msg)
     Logger.Log("连接关闭 result:" .. result)
 end
--- message QueryGateRes{
--- 	optional bytes loginToken = 1;
--- 	optional bytes gateconfig = 2;
--- 	optional string userphone = 3;
--- 	optional LoginGateData RecommandGate = 4;
--- 	repeated SelfServerData servers = 5;
--- 	optional uint32 loginzoneid = 6;
--- 	repeated LoginGateData allservers = 7;
--- 	optional bool in_white_list = 8;
--- 	optional PlatNotice notice = 9;
--- 	optional ErrorCode error = 10;
--- 	optional PlatBanAccount baninfo = 11;
--- 	optional bool freeflow = 12;  //是否免流量
--- 	optional int32 cctype = 13;
--- 	repeated PlatFriendServer platFriendServers = 14;
--- 	repeated uint32 bespeakserverids = 15;
--- }
+-- -- message QueryGateRes{
+-- -- 	optional bytes loginToken = 1;
+-- -- 	optional bytes gateconfig = 2;
+-- -- 	optional string userphone = 3;
+-- -- 	optional LoginGateData RecommandGate = 4;
+-- -- 	repeated SelfServerData servers = 5;
+-- -- 	optional uint32 loginzoneid = 6;
+-- -- 	repeated LoginGateData allservers = 7;
+-- -- 	optional bool in_white_list = 8;
+-- -- 	optional PlatNotice notice = 9;
+-- -- 	optional ErrorCode error = 10;
+-- -- 	optional PlatBanAccount baninfo = 11;
+-- -- 	optional bool freeflow = 12;  //是否免流量
+-- -- 	optional int32 cctype = 13;
+-- -- 	repeated PlatFriendServer platFriendServers = 14;
+-- -- 	repeated uint32 bespeakserverids = 15;
+-- -- }
 
 -- 处理授权消息的返回
 local function Handle_QueryGateArg(msg)
     Logger.Log("龙之谷的消息，切换下场景")
-    -----loginToken = Gp6/yhE981K2jpR+fRUhZ2QAAAABAAAA
+    print("连接新的服务器")
     ClientData:GetInstance():SetLoginToken(msg.loginToken)
     ClientData:GetInstance():SetServerInfo(msg.RecommandGate)
     ClientData:GetInstance():Setloginzoneid(msg.loginzoneid)
-
     local server = ClientData:GetInstance().RecommandGate
+    print(server.ip.."连接信息"..server.port)
     HallConnector:GetInstance():Connect(server.ip, server.port, Bind(self, OnConnect), Bind(self, OnClose))
 
     ---	SceneManager:GetInstance():SwitchScene(SceneConfig.HomeScene)
 end
 
--- message ErrorInfo{
--- 	optional uint32 errorno = 1;
--- 	repeated uint32 param = 2;
--- 	optional uint64 param64 = 3;
--- 	optional bool istip = 4;
--- }
+-- -- message ErrorInfo{
+-- -- 	optional uint32 errorno = 1;
+-- -- 	repeated uint32 param = 2;
+-- -- 	optional uint64 param64 = 3;
+-- -- 	optional bool istip = 4;
+-- -- }
 ---------------------------处理服务器有错误等情况时，返回的消息--------------------------------
 local function Handle_ErrorInfo(msg)
     Logger.Log("服务器 error = " .. tostring(msg.errorno) .. "   param=" .. tostring(msg.param))
 end
 
--- message LoginChallenge{
--- 	optional string challenge = 1;
--- 	optional uint64 session = 2;
--- }
+-- -- message LoginChallenge{
+-- -- 	optional string challenge = 1;
+-- -- 	optional uint64 session = 2;
+-- -- }
 
--- message LoginArg{
--- 	optional uint32 gameserverid = 1;
--- 	optional bytes token = 2;
--- 	optional string ios = 3;
--- 	optional string android = 4;
--- 	optional string pc = 5;
--- 	optional string openid = 6;
--- 	optional ClientInfo clientInfo = 7;
--- 	optional uint32 loginzoneid = 8;
--- }
+-- -- message LoginArg{
+-- -- 	optional uint32 gameserverid = 1;
+-- -- 	optional bytes token = 2;
+-- -- 	optional string ios = 3;
+-- -- 	optional string android = 4;
+-- -- 	optional string pc = 5;
+-- -- 	optional string openid = 6;
+-- -- 	optional ClientInfo clientInfo = 7;
+-- -- 	optional uint32 loginzoneid = 8;
+-- -- }
 
--- rpcC2T_ClientLoginRequest.oArg.token = Convert.FromBase64String(XSingleton<XClientNetwork>.singleton.XLoginToken);
--- rpcC2T_ClientLoginRequest.oArg.gameserverid = XSingleton<XClientNetwork>.singleton.ServerID;
--- rpcC2T_ClientLoginRequest.oArg.openid = XSingleton<XLoginDocument>.singleton.OpenID;
--- rpcC2T_ClientLoginRequest.oArg.loginzoneid = XSingleton<XLoginDocument>.singleton.LoginZoneID;
--- rpcC2T_ClientLoginRequest.oArg.pc = "0.0.0";
+-- -- rpcC2T_ClientLoginRequest.oArg.token = Convert.FromBase64String(XSingleton<XClientNetwork>.singleton.XLoginToken);
+-- -- rpcC2T_ClientLoginRequest.oArg.gameserverid = XSingleton<XClientNetwork>.singleton.ServerID;
+-- -- rpcC2T_ClientLoginRequest.oArg.openid = XSingleton<XLoginDocument>.singleton.OpenID;
+-- -- rpcC2T_ClientLoginRequest.oArg.loginzoneid = XSingleton<XLoginDocument>.singleton.LoginZoneID;
+-- -- rpcC2T_ClientLoginRequest.oArg.pc = "0.0.0";
 
--- UserData = require("DataCenter.UserData.UserData")
+-- -- UserData = require("DataCenter.UserData.UserData")
 
 ----============ 拿到授权后，连接上游戏服务器后，由服务器主动下发的第一个消息，保存里面的session，用于以后的短线重连   ============
 local function Handle_LoginChallenge(msg)
     Logger.Log("LoginChallenge 消息   challenge= " .. msg.challenge .. "   session=" .. tostring(msg.session))
-
+    print("现在是在登录进行登录")
     ClientData:GetInstance():SetSessionAndchallenge(msg)
 
     local clientdata = ClientData:GetInstance()
@@ -132,10 +135,10 @@ local function Handle_LoginRes(msg)
         end
     end
 
-    ------------------------发送选角色的消息给服务器----------------------------
-    local tmpMsg = MsgIDMap[MsgIDDefine.SelectRoleNew].argMsg
-    tmpMsg.index = 6 ---传从0开始的索引
-    HallConnector:GetInstance():SendMessage(MsgIDDefine.SelectRoleNew, tmpMsg)
+    -- ------------------------发送选角色的消息给服务器----------------------------
+    -- local tmpMsg = MsgIDMap[MsgIDDefine.SelectRoleNew].argMsg
+    -- tmpMsg.index = 6 ---传从0开始的索引
+    -- HallConnector:GetInstance():SendMessage(MsgIDDefine.SelectRoleNew, tmpMsg)
 
     --------------发送创建角色的消息----------------------------
     --  local tmpMsg = MsgIDMap[MsgIDDefine.CreateRoleNew].argMsg
@@ -167,7 +170,7 @@ end
 
 ----------非常重要的消息，进游戏后所有的初始数据都在这里，，
 ----------涉及的pb协议很多，搞了很久才把它的.proto文件挨个找出生成.lua的，
-----------因为。lua有local变量不能超过200个的限制，需要把协议拆分
+----------因为。lua有local变量不能超过200个的限制，需把协议拆要分
 local function Handle_SelectRoleNtfData(msg)
     local roleData = msg.roleData
     Logger.Log("Handle_SelectRoleNtfData   lv = " .. tostring(roleData.Brief.level) .. "   name = " ..
@@ -255,27 +258,27 @@ local function Handle_WorldChannelLeftTimesNtf(msg)
     Logger.Log("收到37503  消息  leftTimes = " .. leftTimes)
 end
 
--- 服务器下发的称号列表
+---------服务器下发的称号列表
 
--- local function Handle_GetDesignationReq(msg)
---     -- body
---     Logger.Log("收到40256  消息  leftTimes = " .. leftTimes)
--- end
+local function Handle_GetDesignationReq(msg)
+    -- body
+    Logger.Log("收到40256  消息  leftTimes = " .. leftTimes)
+end
 
-MsgCallBackHandler.Handle_QueryGateArg = Handle_QueryGateArg
-MsgCallBackHandler.Handle_ErrorInfo = Handle_ErrorInfo
-MsgCallBackHandler.Handle_LoginChallenge = Handle_LoginChallenge
-MsgCallBackHandler.Handle_LoginRes = Handle_LoginRes
-MsgCallBackHandler.Handle_SelectRoleNewRes = Handle_SelectRoleNewRes
-MsgCallBackHandler.Handle_IBGiftIcon = Handle_IBGiftIcon
-MsgCallBackHandler.Handle_NotifyStartUpTypeToClient = Handle_NotifyStartUpTypeToClient
-MsgCallBackHandler.Handle_SceneCfg = Handle_SceneCfg
-MsgCallBackHandler.Handle_Systems = Handle_Systems
-MsgCallBackHandler.Handle_SelectRoleNtfData = Handle_SelectRoleNtfData
-MsgCallBackHandler.Handle_ChatNotify = Handle_ChatNotify
+ MsgCallBackHandler.Handle_QueryGateArg = Handle_QueryGateArg
+ MsgCallBackHandler.Handle_ErrorInfo = Handle_ErrorInfo
+ MsgCallBackHandler.Handle_LoginChallenge = Handle_LoginChallenge
+ MsgCallBackHandler.Handle_LoginRes = Handle_LoginRes
+ MsgCallBackHandler.Handle_SelectRoleNewRes = Handle_SelectRoleNewRes
+ MsgCallBackHandler.Handle_IBGiftIcon = Handle_IBGiftIcon
+ MsgCallBackHandler.Handle_NotifyStartUpTypeToClient = Handle_NotifyStartUpTypeToClient
+ MsgCallBackHandler.Handle_SceneCfg = Handle_SceneCfg
+ MsgCallBackHandler.Handle_Systems = Handle_Systems
+ MsgCallBackHandler.Handle_SelectRoleNtfData = Handle_SelectRoleNtfData
+ MsgCallBackHandler.Handle_ChatNotify = Handle_ChatNotify
 
-MsgCallBackHandler.Handle_WorldChannelLeftTimesNtf = Handle_WorldChannelLeftTimesNtf
+ MsgCallBackHandler.Handle_WorldChannelLeftTimesNtf = Handle_WorldChannelLeftTimesNtf
 
--- MsgCallBackHandler.Handle_GetDesignationReq = Handle_GetDesignationReq
+ MsgCallBackHandler.Handle_GetDesignationReq = Handle_GetDesignationReq
 
 return MsgCallBackHandler
