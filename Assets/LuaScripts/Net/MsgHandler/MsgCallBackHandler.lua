@@ -120,6 +120,7 @@ end
 local function Handle_LoginRes(msg)
 
     UIManager:GetInstance():OpenWindow(UIWindowNames.UISelectRole)
+    UIManager:GetInstance():CloseWindow(UIWindowNames.NewUILogin)
     Logger.Log("msg.accountData.account = " .. msg.accountData.account .. "  selectSlot =  " ..
                    msg.accountData.selectSlot .. " result = " .. msg.result .. "  is_backflow_server =" ..
                    tostring(msg.data.is_backflow_server) .. " backflow_level =" .. msg.data.backflow_level)
