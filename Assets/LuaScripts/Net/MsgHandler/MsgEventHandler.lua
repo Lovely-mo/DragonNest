@@ -6,8 +6,8 @@ local MsgCallBackHandler = require("Net/MsgHandler/MsgCallBackHandler")
 local MsgIDDefine = require("Net/Config/MsgIDDefine")
 local function RegisterMsg()
     --TODO:在这里添加具体的消息回调处理事件
- 
 
+    
     DataManager:GetInstance():AddListener(MsgIDDefine.QueryGateArg, MsgCallBackHandler.Handle_QueryGateArg)
     DataManager:GetInstance():AddListener(MsgIDDefine.ErrorInfo, MsgCallBackHandler.Handle_ErrorInfo)
     DataManager:GetInstance():AddListener(MsgIDDefine.LoginChallenge, MsgCallBackHandler.Handle_LoginChallenge)

@@ -48,104 +48,12 @@ local function OnClose(self, sender, result, msg)
     Logger.Log("连接关闭 result:" .. result .. "msg:" .. msg)
 end
 
-local function WebRequest(url, callback)
-    --print("开始协同。。。。")
-    local co =
-        coroutine.create(
-        function()
-            local request = CS.UnityEngine.Networking.UnityWebRequest.Get(url)
-            yield_return(request:SendWebRequest())
-            if (request.isNetworkError or request.isHttpError) then
-                print(request.error)
-            else
-                callback(request.downloadHandler.text)
-                print("" .. request.downloadHandler.text)
-            end
-        end
-    )
-    assert(coroutine.resume(co))
-end
 
 local function ConnectServer(self)
-    ---	HallConnector:GetInstance():Connect("192.168.1.245", 10020, Bind(self, OnConnect), Bind(self, OnClose))
     HallConnector:GetInstance():Connect("10.161.21.113", 25001, Bind(self, OnConnect), Bind(self, OnClose))
 end
 local function LoginDragonServer(self)
     ConnectServer(self)
-end
-
-local function LogindatangServer(self)
-    --print("登录")
-    local appid = ""
-
-    local userId = ""
-
-    local userName = "PC"
-
-    local passWord = "123456"
-
-    local tourist = "1"
-
-    local token = ""
-
-    local time = os.time()
-    local key = "QYQDGAMEDshEFWOKE7Y6GAEDE-WAN-0668-2625-7DGAMESZEFovDDe777"
-    local sign =
-        CS.GameUtility.MD5(
-        string.format("%s%s%s%s%s%s%s%s", appid, userId, userName, passWord, tourist, token, time, key)
-    )
-
-    local url =
-        string.format(
-        "http://127.0.0.1:8000/login?appid=%s&userId=%s&userName=%s&passWord=%s&tourist=%s&token=%s&time=%s&sign=%s",
-        appid,
-        userId,
-        userName,
-        passWord,
-        tourist,
-        token,
-        time,
-        sign
-    )
-    print("url========:" .. url)
-    local msg = {}
-    WebRequest(
-        url,
-        function(data)
-            --print("----------"..data)
-            --解析json的时候需要注意的是Json的结构形式
-            local jsdata = json.decode(data)
-            print(jsdata["userId"])
-            self.userId = tonumber(jsdata["userId"])
-            --print(' self.model.userId ' .. model.userId)
-            self.key = jsdata["key"]
-            self.time = tonumber(jsdata["time"])
-            self.sign = jsdata["sign"]
-            --print(jsdata['serverList'])
-            local serList = json.decode(jsdata["serverList"])
-            self.serverNo = tonumber(serList[1]["serverNo"])
-            self.IP = serList[1]["gameHost"]
-            self.port = tonumber(serList[1]["gamePort"])
-            local flag = HallConnector:GetInstance():Connect(self.IP, self.port)
-            if (flag) then
-                print("-----------")
-                msg = MsgIDMap[MsgIDDefine.C_LoginGame]
-                msg.userId = tonumber(self.userId)
-                msg.key = self.key
-                msg.time = tostring(self.time)
-                msg.sign = self.sign
-                msg.serverNo = self.serverNo
-                HallConnector:GetInstance():SendMessage(MsgIDDefine.C_LoginGame, msg)
-            end
-        end
-    )
-end
-
-local function OnClose(self, sender, result, msg)
-    if result < 0 then
-        Logger.LogError("Close err : " .. msg)
-        return
-    end
 end
 
 local function LoginServer(self, name, password)
@@ -183,8 +91,6 @@ end
 local function SendSelectRoleNew(self)
     local tmpMsg = MsgIDMap[MsgIDDefine.SelectRoleNew].argMsg
     tmpMsg.index = 6---传从0开始的索引
-	 
-    -- HallConnector:GetInstance():SendMessage(MsgIDDefine.SelectRoleNew, tmpMsg)
 end
 
 
@@ -194,7 +100,6 @@ end
 
 UILoginCtrl.LoginServer = LoginServer
 UILoginCtrl.ChooseServer = ChooseServer
-UILoginCtrl.LogindatangServer = LogindatangServer
 UILoginCtrl.LoginDragonServer = LoginDragonServer
 UILoginCtrl.SendSelectRoleNew = SendSelectRoleNew
 
