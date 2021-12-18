@@ -44,6 +44,8 @@ local function LoginDragonServer(self,selfname,selfpassword)
     MySelfName = selfname
     MySelfPassword = selfpassword
     
+    MySelfName = "a456456"
+    MySelfPassword = "456456"
     print("类型name:"..type(MySelfName).."password"..type(MySelfPassword))
 end
 
