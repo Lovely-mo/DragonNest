@@ -51,6 +51,7 @@ local function Handle_QueryGateArg(msg)
     ClientData:GetInstance():Setloginzoneid(msg.loginzoneid)
 
     local server = ClientData:GetInstance().RecommandGate
+    print(server.ip.."连接信息"..server.port)
     HallConnector:GetInstance():Connect(server.ip, server.port, Bind(self, OnConnect), Bind(self, OnClose))
 
     ---	SceneManager:GetInstance():SwitchScene(SceneConfig.HomeScene)
@@ -94,7 +95,7 @@ end
 ----============ 拿到授权后，连接上游戏服务器后，由服务器主动下发的第一个消息，保存里面的session，用于以后的短线重连   ============
 local function Handle_LoginChallenge(msg)
     Logger.Log("LoginChallenge 消息   challenge= " .. msg.challenge .. "   session=" .. tostring(msg.session))
-
+    print("现在是在登录进行登录")
     ClientData:GetInstance():SetSessionAndchallenge(msg)
 
     local clientdata = ClientData:GetInstance()

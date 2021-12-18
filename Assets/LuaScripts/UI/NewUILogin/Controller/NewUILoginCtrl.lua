@@ -43,6 +43,8 @@ local function LoginDragonServer(self,selfname,selfpassword)
     ConnectServer(self)
     MySelfName = selfname
     MySelfPassword = selfpassword
+    
+    print("类型name:"..type(MySelfName).."password"..type(MySelfPassword))
 end
 
 NewUILoginCtrl.LoginDragonServer = LoginDragonServer
