@@ -8,34 +8,12 @@ local UIModule = {
 	UILogin = require "UI.UILogin.UILoginConfig",
 	UILoading = require "UI.UILoading.UILoadingConfig",
 	UINoticeTip = require "UI.UINoticeTip.UINoticeTipConfig",
-	UITestMain = require "UI.UITestMain.UITestMainConfig",
-	UIBattle = require "UI.UIBattle.UIBattleConfig",
-	UIBoard = require "UI.UIBoard.UIBoardConfig",
-	--模块描述
-	BagPanle=require "UI.BagPanle.BagPanleConfig",
-
-	
-	--RoleMain
-	RoleMain=require "UI.RoleMain.RoleMainConfig",
-	--RoleMain
-	RoleTitle=require "UI.RoleTitle.RoleTitleConfig",
-	--模块描述
-	ItemTips=require "UI.ItemTips.ItemTipsConfig",
-
-	--模块描述
-	SpritePanel=require "UI.SpritePanel.SpritePanelConfig",
-	--模块描述
-	ExamBagPanle=require "UI.ExamBagPanle.ExamBagPanleConfig",
-	--模块描述
-	ExamItemDes=require "UI.ExamItemDes.ExamItemDesConfig",
-	--模块描述
-	ExamRoleMain=require "UI.ExamRoleMain.ExamRoleMainConfig",
-	--模块描述
-	ExamRoleTitle=require "UI.ExamRoleTitle.ExamRoleTitleConfig",
-	--模块描述
+	--选服界面
 	 UIChangeServer=require "UI.UIChangeServer.UIChangeServerConfig",
-	--模块描述
+	--新的登录界面
 	NewUILogin=require "UI.NewUILogin.NewUILoginConfig",
+	--选择角色界面
+	UISelectRole=require "UI.UISelectRole.UISelectRoleConfig",
 	--AppendCode
 }
 
