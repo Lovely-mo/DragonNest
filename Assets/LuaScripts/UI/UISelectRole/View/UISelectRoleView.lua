@@ -8,14 +8,21 @@
 --]]
 local UISelectRoleView = BaseClass("UISelectRoleView", UIBaseView)
 local base = UIBaseView
+
+local RoleButtons = "RoleButtons/Button" 
+
 local function OnCreate(self)
 	base.OnCreate(self)
 	-- 窗口生命周期内保持的成员变量放这
+	self.RoleButtons = self:AddComponent(UIButton,RoleButtons)
 end
 -- 打开
 local function OnEnable(self)
 	base.OnEnable(self)
 	-- 窗口关闭时可以清理的成员变量放这
+	self.RoleButtons:SetOnClick(function ()
+		CS.RoleShow:Init(1)
+	end)
 end
 -- 关闭
 local function OnDestroy(self)
