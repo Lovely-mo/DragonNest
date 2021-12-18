@@ -8,14 +8,25 @@
 --]]
 local UIChangeServerView = BaseClass("UIChangeServerView", UIBaseView)
 local base = UIBaseView
+
+
+local Left_Scoll_content_Path=""
+local Right_Scoll_content_Path=""
+
+
+
+
 local function OnCreate(self)
 	base.OnCreate(self)
+	self.left_Scoll=self:AddComponent(UIWrapGroup,Left_Scoll_content_Path)
+	self.right_scoll=self:AddComponent(UIWrapGroup,Right_Scoll_content_Path)
+
 	-- 窗口生命周期内保持的成员变量放这
 end
 -- 打开
 local function OnEnable(self)
 	base.OnEnable(self)
-	print("我操nmmm")
+	
 	-- 窗口关闭时可以清理的成员变量放这
 end
 -- 关闭
