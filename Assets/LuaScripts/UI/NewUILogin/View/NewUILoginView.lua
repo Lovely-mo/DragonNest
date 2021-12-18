@@ -33,7 +33,6 @@ local function OnEnable(self)
 	end)
 	self.LoginBtn:SetOnClick(function ()
 		print("点击了登录按钮")
-		self.ctrl:LogindatangServer(self.AccountInput:GetText(),self.PasswordInput:GetText())
 		self.ctrl:LoginDragonServer()
 	end)
 end
