@@ -90,7 +90,7 @@ local function SetActivePanel(self,index)
 		self.HaveaRoleRoot.transform.gameObject:SetActive(true)
 		self.NoRoleRoot.transform.gameObject:SetActive(false)
 		self.ShowName:SetText(self.model.RoleListModel[index].name)
-		self.ShowLevel:SetText(self.model.RoleListModel[index].level)
+		self.ShowLevel:SetText(math.ceil(self.model.RoleListModel[index].level))
 		
 		
 	end
