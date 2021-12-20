@@ -22,10 +22,9 @@ public class RoleShow : MonoBehaviour
     // Start is called before the first frame update
 
     public static void Init(int index)
-    { 
+    {
         print(index);
-
-    Allconstitute = new string[10];
+        Allconstitute = new string[10];
         Allconstitute[0] = MySelfconstitute[index].Skeleton;
         Allconstitute[1] = MySelfconstitute[index].Face;
         Allconstitute[2] = MySelfconstitute[index].Hair;
@@ -37,13 +36,10 @@ public class RoleShow : MonoBehaviour
         Allconstitute[8] = MySelfconstitute[index].Wenpon;
         Allconstitute[9] = MySelfconstitute[index].WEaponPoint;
         step1();
-}
-        return play;
-        }
-
-public static void step1()
+    }
+    public static void step1()
     {
-        if(play!=null)
+        if (play != null)
         {
             GameObject.Destroy(play.gameObject);
         }
@@ -57,13 +53,14 @@ public static void step1()
         Mesh[] mesh = new Mesh[Allconstitute.Length - 3];
         texture2 = new Texture2D[Allconstitute.Length - 3];
         int index = 0;
-        for (int i = 1; i < Allconstitute.Length-2; i++)
+        for (int i = 1; i < Allconstitute.Length - 2; i++)
         {
             Mesh mesh1;
-            mesh1 = Resources.Load<Mesh>(path+Allconstitute[i]);
+            mesh1 = Resources.Load<Mesh>(path + Allconstitute[i]);
             mesh[index] = mesh1;
-            texture2[index] = Resources.Load<Texture2D>(path+Allconstitute[i]);
+            texture2[index] = Resources.Load<Texture2D>(path + Allconstitute[i]);
             index++;
+
         }
         step2(mesh);
     }
@@ -88,13 +85,13 @@ public static void step1()
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
 public class MySelfConstitute
@@ -102,7 +99,7 @@ public class MySelfConstitute
     string skeleton;//骨骼
     string face;//脸
     string hair;//头发
-    
+
     string body;//身体
     string boots;//鞋子
     string glove;//手套
@@ -112,7 +109,7 @@ public class MySelfConstitute
     string wenpon;//主武器
     string WeaponPoint;//主武器挂载点
 
-    public MySelfConstitute(string skeleton, string face, string hair,  string body, string boots, string glove, /*string helmet,*/ string leg, string second, string wenpon,string WeaponPoint)
+    public MySelfConstitute(string skeleton, string face, string hair, string body, string boots, string glove, /*string helmet,*/ string leg, string second, string wenpon, string WeaponPoint)
     {
         this.skeleton = skeleton;
         this.hair = hair;
