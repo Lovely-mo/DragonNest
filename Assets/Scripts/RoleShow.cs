@@ -21,8 +21,9 @@ public class  RoleShow : MonoBehaviour
     };
     // Start is called before the first frame update
 
-    public static GameObject Init(int index)
+    public static void Init(int index)
     {
+        Debug.Log(index);
         Allconstitute = new string[10];
         Allconstitute[0] = MySelfconstitute[index].Skeleton;
         Allconstitute[1] = MySelfconstitute[index].Face;
@@ -35,7 +36,6 @@ public class  RoleShow : MonoBehaviour
         Allconstitute[8] = MySelfconstitute[index].Wenpon;
         Allconstitute[9] = MySelfconstitute[index].WEaponPoint;
         step1();
-        return play;
     }
     public static void step1()
     {
@@ -60,7 +60,6 @@ public class  RoleShow : MonoBehaviour
             mesh[index] = mesh1;
             texture2[index] = Resources.Load<Texture2D>(path+Allconstitute[i]);
             index++;
-            print(index);
         }
         step2(mesh);
     }

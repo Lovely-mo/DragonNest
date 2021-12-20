@@ -21,7 +21,7 @@ local function OnEnable(self)
 	base.OnEnable(self)
 	-- 窗口关闭时可以清理的成员变量放这
 	self.RoleButtons:SetOnClick(function ()
-		CS.RoleShow:Init(1)
+		CS.RoleShow:Init(10000000)
 	end)
 end
 -- 关闭
