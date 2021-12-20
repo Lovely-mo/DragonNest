@@ -21,7 +21,7 @@ public class  RoleShow : MonoBehaviour
     };
     // Start is called before the first frame update
 
-    public static void Init(int index)
+    public static GameObject Init(int index)
     {
         Allconstitute = new string[10];
         Allconstitute[0] = MySelfconstitute[index].Skeleton;
@@ -35,6 +35,7 @@ public class  RoleShow : MonoBehaviour
         Allconstitute[8] = MySelfconstitute[index].Wenpon;
         Allconstitute[9] = MySelfconstitute[index].WEaponPoint;
         step1();
+        return play;
     }
     public static void step1()
     {
@@ -81,7 +82,6 @@ public class  RoleShow : MonoBehaviour
         {
             skinnd.sharedMaterial.SetTexture("_Tex" + i, texture2[i]);
         }
-
     }
     void Start()
     {
