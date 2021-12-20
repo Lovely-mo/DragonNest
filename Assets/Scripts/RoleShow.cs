@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class  RoleShow : MonoBehaviour
+public class RoleShow : MonoBehaviour
 {
     static string[] Allconstitute;
     static string path = "Equipments/Player/";
@@ -17,12 +17,14 @@ public class  RoleShow : MonoBehaviour
         new MySelfConstitute("Player_cleric_SkinnedMesh","cl_face", "cl_hair_01",  "cl_body", "cl_boots", "cl_glove", "cl_leg", "cl_second", "cl_weapon","BoxBone01_Cleric"),
         new MySelfConstitute("Player_academic_SkinnedMesh", "ac_face", "ac_hair", "ac_body", "ac_boots", "ac_glove", "ac_leg", "ac_second", "ac_weapon","~BoxBone01_academic"),
         new MySelfConstitute("Player_assassin_SkinnedMesh","as_face", "as_hair01",  "as_body", "as_boots", "as_glove", "as_leg", "as_second", "as_weapon","BoxBone01_assassin"),
-        new MySelfConstitute("Player_kali_SkinnedMesh","ka_face", "ka_hair",  "ka_body", "ka_boots", "ka_glove", "ka_leg", "ka_second", "ka_weapon","BoxBone01_kali|BoxBone02_kali"),
+        new MySelfConstitute("Player_kali_SkinnedMesh","ka_face", "ka_hair",  "ka_body", "ka_boots", "ka_glove", "ka_leg", "ka_second", "ka_weapon","BoxBone02_kali"),
     };
     // Start is called before the first frame update
 
     public static void Init(int index)
     {
+        print(index);
+        print(MySelfconstitute[6].Skeleton);
         Allconstitute = new string[10];
         Allconstitute[0] = MySelfconstitute[index].Skeleton;
         Allconstitute[1] = MySelfconstitute[index].Face;
@@ -38,7 +40,7 @@ public class  RoleShow : MonoBehaviour
     }
     public static void step1()
     {
-        if(play!=null)
+        if (play != null)
         {
             GameObject.Destroy(play.gameObject);
         }
@@ -52,14 +54,14 @@ public class  RoleShow : MonoBehaviour
         Mesh[] mesh = new Mesh[Allconstitute.Length - 3];
         texture2 = new Texture2D[Allconstitute.Length - 3];
         int index = 0;
-        for (int i = 1; i < Allconstitute.Length-2; i++)
+        for (int i = 1; i < Allconstitute.Length - 2; i++)
         {
             Mesh mesh1;
-            mesh1 = Resources.Load<Mesh>(path+Allconstitute[i]);
+            mesh1 = Resources.Load<Mesh>(path + Allconstitute[i]);
             mesh[index] = mesh1;
-            texture2[index] = Resources.Load<Texture2D>(path+Allconstitute[i]);
+            texture2[index] = Resources.Load<Texture2D>(path + Allconstitute[i]);
             index++;
-            print(index);
+
         }
         step2(mesh);
     }
@@ -81,17 +83,16 @@ public class  RoleShow : MonoBehaviour
         {
             skinnd.sharedMaterial.SetTexture("_Tex" + i, texture2[i]);
         }
-
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
 public class MySelfConstitute
@@ -99,7 +100,7 @@ public class MySelfConstitute
     string skeleton;//骨骼
     string face;//脸
     string hair;//头发
-    
+
     string body;//身体
     string boots;//鞋子
     string glove;//手套
@@ -109,7 +110,7 @@ public class MySelfConstitute
     string wenpon;//主武器
     string WeaponPoint;//主武器挂载点
 
-    public MySelfConstitute(string skeleton, string face, string hair,  string body, string boots, string glove, /*string helmet,*/ string leg, string second, string wenpon,string WeaponPoint)
+    public MySelfConstitute(string skeleton, string face, string hair, string body, string boots, string glove, /*string helmet,*/ string leg, string second, string wenpon, string WeaponPoint)
     {
         this.skeleton = skeleton;
         this.hair = hair;

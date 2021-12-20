@@ -7,6 +7,20 @@ UserData.listPlayerEquipment = {}--存放装备
 UserData.index=0;
 UserData.SpriteList={}
 
+
+
+UserData.RoleList={}
+
+
+
+--添加角色列表
+function UserData:AddRole(i,role)
+    UserData.RoleList[i]=role
+end
+
+
+
+
 --初始化背包
 function UserData:Init(len)
     for i = 1, len do

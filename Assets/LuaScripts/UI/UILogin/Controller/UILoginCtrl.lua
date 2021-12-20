@@ -35,8 +35,8 @@ local function OnConnect(self, sender, result, msg)
     msg.type = LoginType_pb.LOGIN_PASSWORD
     msg.platid = PlatType_pb.PLAT_ANDROID
     msg.version = "0.0.0"
-    msg.account = "a456456"
-    msg.password = "456456"
+    msg.account = "a789789"
+    msg.password = "789789"
     msg.openid = "a456456"
     msg.token = ""
     msg.pf = ""
