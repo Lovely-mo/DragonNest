@@ -9,11 +9,19 @@
 local UISelectRoleView = BaseClass("UISelectRoleView", UIBaseView)
 local base = UIBaseView
 
-local RoleButtons = "RoleButtons/Button" 
+local RoleButtons = "RoleButtons" 
 
 local function OnCreate(self)
 	base.OnCreate(self)
 	-- 窗口生命周期内保持的成员变量放这
+	self.RoleButtonss = slef.transform:Find("RoleButtons")
+	for i = 1, self.RoleButtonss.transform.childCount, 1 do
+		self.RoleButtons = self:AddComponent(UIButton,RoleButtons.."/"..self.RoleButtonss.transform:GetChild(i-1).transform.name)
+		self.RoleButtons:SetOnClick(self,function(self)
+			
+		end)
+	end
+
 	self.RoleButtons = self:AddComponent(UIButton,RoleButtons)
 end
 -- 打开
