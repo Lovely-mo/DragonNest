@@ -17,13 +17,14 @@ public class RoleShow : MonoBehaviour
         new MySelfConstitute("Player_cleric_SkinnedMesh","cl_face", "cl_hair_01",  "cl_body", "cl_boots", "cl_glove", "cl_leg", "cl_second", "cl_weapon","BoxBone01_Cleric"),
         new MySelfConstitute("Player_academic_SkinnedMesh", "ac_face", "ac_hair", "ac_body", "ac_boots", "ac_glove", "ac_leg", "ac_second", "ac_weapon","~BoxBone01_academic"),
         new MySelfConstitute("Player_assassin_SkinnedMesh","as_face", "as_hair01",  "as_body", "as_boots", "as_glove", "as_leg", "as_second", "as_weapon","BoxBone01_assassin"),
-        new MySelfConstitute("Player_kali_SkinnedMesh","ka_face", "ka_hair",  "ka_body", "ka_boots", "ka_glove", "ka_leg", "ka_second", "ka_weapon","BoxBone01_kali|BoxBone02_kali"),
+        new MySelfConstitute("Player_kali_SkinnedMesh","ka_face", "ka_hair",  "ka_body", "ka_boots", "ka_glove", "ka_leg", "ka_second", "ka_weapon","BoxBone02_kali"),
     };
     // Start is called before the first frame update
 
     public static void Init(int index)
     {
         print(index);
+        print(MySelfconstitute[6].Skeleton);
         Allconstitute = new string[10];
         Allconstitute[0] = MySelfconstitute[index].Skeleton;
         Allconstitute[1] = MySelfconstitute[index].Face;

@@ -84,8 +84,10 @@ local function SetActivePanel(self,index)
 		self.NoRoleRoot.transform.gameObject:SetActive(false)
 		self.ShowName:SetText(self.model.RoleListModel[index].name)
 		self.ShowLevel:SetText(self.model.RoleListModel[index].level)
-		CS.RoleShow:Init(tonumber(index-1))
+		
+		
 	end
+	CS.RoleShow.Init(tonumber(index-1))
 end
 
 
