@@ -13,11 +13,15 @@ local UISelectRoleModel = BaseClass("UISelectRoleModel", UIBaseModel)
 local base = UIBaseModel-- 创建
 local function OnCreate(self)
 	base.OnCreate(self)
+	self.RoleListModel={}--数据集合
+	self.RoleList={}--模型集合
+	self.index=1--选择的人物
 	-- 窗口生命周期内保持的成员变量放这
 end
 -- 打开
 local function OnEnable(self)
 	base.OnEnable(self)
+	self.RoleListModel=UserData:GetInstance().RoleList
 	-- 窗口关闭时可以清理的成员变量放这
 end
 -- 关闭
