@@ -156,6 +156,7 @@ public static class XLuaHelperExporter
         typeof(Activator),
         typeof(Type),
         typeof(BindingFlags),
+        typeof(RoleShow),
     };
 
     [CSharpCallLua]
