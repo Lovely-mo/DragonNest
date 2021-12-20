@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class  RoleShow : MonoBehaviour
+public class RoleShow : MonoBehaviour
 {
     static string[] Allconstitute;
     static string path = "Equipments/Player/";
@@ -22,9 +22,10 @@ public class  RoleShow : MonoBehaviour
     // Start is called before the first frame update
 
     public static void Init(int index)
-    {
-        Debug.Log(index);
-        Allconstitute = new string[10];
+    { 
+        print(index);
+
+    Allconstitute = new string[10];
         Allconstitute[0] = MySelfconstitute[index].Skeleton;
         Allconstitute[1] = MySelfconstitute[index].Face;
         Allconstitute[2] = MySelfconstitute[index].Hair;
@@ -36,8 +37,11 @@ public class  RoleShow : MonoBehaviour
         Allconstitute[8] = MySelfconstitute[index].Wenpon;
         Allconstitute[9] = MySelfconstitute[index].WEaponPoint;
         step1();
-    }
-    public static void step1()
+}
+        return play;
+        }
+
+public static void step1()
     {
         if(play!=null)
         {

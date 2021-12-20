@@ -43,6 +43,11 @@ local SceneConfig = {
 		Name = "Test",
 		Type = require "Scenes.Test",
 	},
+	SelectRoleScence = {
+		Level = 6,
+		Name = "SelectRoleScence",
+		Type = require "Scenes.SelectRoleScence",
+	},
 }
 
 return ConstClass("SceneConfig", SceneConfig)
