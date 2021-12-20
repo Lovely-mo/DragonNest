@@ -19,17 +19,6 @@ local UISelectRoleView = BaseClass("UISelectRoleView", UIBaseView)
 local MsgIDDefine = require("Net/Config/MsgIDDefine")
 local MsgIDMap = require("Net/Config/MsgIDMap")
 local base = UIBaseView
-
-<<<<<<< .mine
-local RoleButtons = "RoleButtons" 
-
-
-
-
-
-
-
-=======
 local RoleButtonsParent="RoleButtons"
 local HaveaRoleRoot="BeSelectedRoot/HaveaRoleRoot"
 local NoRoleRoot="BeSelectedRoot/NoRoleRoot"
@@ -38,50 +27,10 @@ local HaveaLevel=HaveaRoleRoot.."/LevelTips/Level"
 local HaveaBut=HaveaRoleRoot.."/Submit"
 local NoName=NoRoleRoot.."/NoNameRoot/NoName"
 local NoBut=NoRoleRoot.."/NoSubmit"
->>>>>>> .theirs
 
 local function OnCreate(self)
 	base.OnCreate(self)
 	-- 窗口生命周期内保持的成员变量放这
-<<<<<<< .mine
-	self.RoleButtonss = slef.transform:Find("RoleButtons")
-	for i = 1, self.RoleButtonss.transform.childCount, 1 do
-		self.RoleButtons = self:AddComponent(UIButton,RoleButtons.."/"..self.RoleButtonss.transform:GetChild(i-1).transform.name)
-		self.RoleButtons:SetOnClick(self,function(self)
-			
-		end)
-	end
-
-	self.RoleButtons = self:AddComponent(UIButton,RoleButtons)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-
 	self.HaveaRoleRoot=self.transform:Find(HaveaRoleRoot)
 	self.NoRoleRoot=self.transform:Find(NoRoleRoot)
 	self.RoleButtonsParent = self.transform:Find(RoleButtonsParent)
@@ -117,7 +66,6 @@ local function OnCreate(self)
      	tmpMsg.name = self.NoName:GetText();
      	HallConnector:GetInstance():SendMessage(MsgIDDefine.SelectRoleNew, tmpMsg)
 	end)
->>>>>>> .theirs
 end
 -- 打开
 local function OnEnable(self)
@@ -148,10 +96,6 @@ local function SetActivePanel(self,index)
 	end
 	CS.RoleShow.Init(tonumber(index-1))
 end
-
-
-
-
 
 UISelectRoleView.SetActivePanel = SetActivePanel
 UISelectRoleView.OnCreate = OnCreate
