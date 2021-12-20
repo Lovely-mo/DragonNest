@@ -62,7 +62,8 @@ local function OnCreate(self)
 	--创建按钮
 	self.NoBut:SetOnClick(function ()
 		local tmpMsg = MsgIDMap[MsgIDDefine.CreateRoleNew].argMsg
-     	tmpMsg.type =  (tonumber)(self.index-1)---传从0开始的索引
+		
+     	tmpMsg.type =  RoleBriefInfo_pb[self.index-1]---传从0开始的索引
      	tmpMsg.name = self.NoName:GetText();
      	HallConnector:GetInstance():SendMessage(MsgIDDefine.SelectRoleNew, tmpMsg)
 	end)
