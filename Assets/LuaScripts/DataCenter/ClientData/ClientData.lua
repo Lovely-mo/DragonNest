@@ -58,6 +58,9 @@ local function SetServerInfo(self, RecommandGate)
 
     Logger.Log("RecommandGate  ip= " .. self.RecommandGate.ip .. " port=" .. self.RecommandGate.port)
 end
+local function SetAllServerInfo(self, allServers)
+    self.AllServers = allServers
+end
 
 local function SetSessionAndchallenge(self, msg)
     --- Logger.Log("ServerInfo = " .. self.RecommandGate)
@@ -80,6 +83,7 @@ ClientData.SetLoginServerID = SetLoginServerID
 ClientData.SetLoginToken = SetLoginToken
 
 ClientData.SetServerInfo = SetServerInfo
+ClientData.SetAllServerInfo = SetAllServerInfo
 ClientData.SetSessionAndchallenge = SetSessionAndchallenge
 ClientData.Setloginzoneid = Setloginzoneid
 

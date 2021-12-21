@@ -14,6 +14,10 @@ local base = UIBaseModel-- 创建
 local function OnCreate(self)
 	base.OnCreate(self)
 	-- 窗口生命周期内保持的成员变量放这
+	self.allServersInfo = {}
+
+	local tempAllServerInfo = ClientData:GetInstance().AllServers
+	print(table.dump(tempAllServerInfo))
 end
 -- 打开
 local function OnEnable(self)
@@ -29,7 +33,6 @@ end
 
 UIChangeServerModel.OnCreate = OnCreate
 UIChangeServerModel.OnEnable = OnEnable
-UIChangeServerModel.OnDisable = OnDisable
 UIChangeServerModel.OnDestroy = OnDestroy
 
 return UIChangeServerModel
