@@ -49,6 +49,11 @@ local function LoginDragonServer(self,selfname,selfpassword)
     print("类型name:"..type(MySelfName).."password"..type(MySelfPassword))
 end
 
+local function OpenServerListWindow(self)
+    UIManager:GetInstance():OpenWindow(UIWindowNames.UIChangeServer)
+end
+
 NewUILoginCtrl.LoginDragonServer = LoginDragonServer
+NewUILoginCtrl.OpenServerListWindow = OpenServerListWindow
 
 return NewUILoginCtrl

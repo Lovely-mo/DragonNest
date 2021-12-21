@@ -9,20 +9,33 @@
 local UIChangeServerView = BaseClass("UIChangeServerView", UIBaseView)
 local base = UIBaseView
 
+local ServerListItem = require("UI.UIChangeServer.Component.UIServerListWrapItem")
+local ServerInfoItem = require("UI.UIChangeServer.Component.UIServerInfoWrapItem")
 
-local Left_Scoll_content_Path=""
-local Right_Scoll_content_Path=""
-
-
-
+local ServerList_content_Path="ServerList/ServerListViewport/ServerListContent"
+local ServerInfo_content_Path="ServerInfo/ServerInfoViewport/ServerInfoContent"
+local Close_Button_Path = "Close"
 
 local function OnCreate(self)
 	base.OnCreate(self)
-	self.left_Scoll=self:AddComponent(UIWrapGroup,Left_Scoll_content_Path)
-	self.right_scoll=self:AddComponent(UIWrapGroup,Right_Scoll_content_Path)
+	self.ServerList_content=self:AddComponent(UIWrapGroup,ServerList_content_Path,ServerListItem)
+	self.ServerInfo_content=self:AddComponent(UIWrapGroup,ServerInfo_content_Path,ServerInfoItem)
+	self.Close_Button = self:AddComponent(UIButton,Close_Button_Path)
 
+	self.Close_Button:SetOnClick(self,function()
+		self.ctrl:CloseWindow()
+	end)
 	-- 窗口生命周期内保持的成员变量放这
 end
+
+local function FreshServerList(self)
+	
+end
+
+local function FreshServerInfo(self)
+	
+end
+
 -- 打开
 local function OnEnable(self)
 	base.OnEnable(self)
@@ -39,6 +52,8 @@ end
 UIChangeServerView.OnCreate = OnCreate
 UIChangeServerView.OnEnable = OnEnable
 UIChangeServerView.OnDestroy = OnDestroy
+UIChangeServerView.FreshServerList = FreshServerList
+UIChangeServerView.FreshServerInfo = FreshServerInfo
 
 return UIChangeServerView
 

@@ -57,8 +57,6 @@ local function OnCreate(self)
     	HallConnector:GetInstance():SendMessage(MsgIDDefine.SelectRoleNew, tmpMsg)
 	end)
 
-
-
 	--创建按钮
 	self.NoBut:SetOnClick(function ()
 		local tmpMsg = MsgIDMap[MsgIDDefine.CreateRoleNew].argMsg
@@ -92,8 +90,6 @@ local function SetActivePanel(self,index)
 		self.NoRoleRoot.transform.gameObject:SetActive(false)
 		self.ShowName:SetText(self.model.RoleListModel[index].name)
 		self.ShowLevel:SetText(math.ceil(self.model.RoleListModel[index].level))
-		
-		
 	end
 	CS.RoleShow.Init(tonumber(index-1))
 end

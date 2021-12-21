@@ -29,7 +29,7 @@ local function OnEnable(self)
 	-- 窗口关闭时可以清理的成员变量放这
 	self.SvrSelectBtn:SetOnClick(function ()
 		print("点击了选服界面")
-		UIManager:GetInstance():OpenWindow(UIWindowNames.UIChangeServer)
+		self.ctrl:OpenServerListWindow()
 	end)
 	self.LoginBtn:SetOnClick(function ()
 		print("点击了登录按钮")

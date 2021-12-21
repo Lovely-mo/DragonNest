@@ -35,7 +35,7 @@ local function OnCreate(self, wrap_class, ...)
 	base.OnCreate(self)
 	
 	-- Unity侧原生组件
-	self.unity_scrollrect = self.transform.parent:GetComponent(typeof(CS.UnityEngine.UI.ScrollRect))
+	self.unity_scrollrect = self.transform:GetComponentInParent(typeof(CS.UnityEngine.UI.ScrollRect))
 	self.unity_grid = self.transform:GetComponent(typeof(CS.UnityEngine.UI.GridLayoutGroup))
 	self.unity_sizefitter = self.transform:GetComponent(typeof(CS.UnityEngine.UI.ContentSizeFitter))
 	assert(not IsNull(self.unity_scrollrect), "No found UnityEngine.UI.ScrollRect!")

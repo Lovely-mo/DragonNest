@@ -3,4 +3,12 @@
 -- +UIChangeServer控制层
 --]]
 local UIChangeServerCtrl = BaseClass("UIChangeServerCtrl", UIBaseCtrl)
+
+local function CloseWindow(self)
+    -- body
+    UIManager:GetInstance():CloseWindow(UIWindowNames.UIChangeServer)
+end
+
+UIChangeServerCtrl.CloseWindow = CloseWindow
+
 return UIChangeServerCtrl
