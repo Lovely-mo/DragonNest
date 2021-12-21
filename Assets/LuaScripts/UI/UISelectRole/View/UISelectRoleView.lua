@@ -7,10 +7,18 @@
 -- 3、组件命名参考代码规范
 --]]
 local UISelectRoleView = BaseClass("UISelectRoleView", UIBaseView)
+--[[
+-- added by passion @ 2021/12/18 10:00:51
+-- UISelectRole视图层
+-- 注意：
+-- 1、成员变量最好预先在__init函数声明，提高代码可读性
+-- 2、OnEnable函数每次在窗口打开时调用，直接刷新
+-- 3、组件命名参考代码规范
+--]]
+local UISelectRoleView = BaseClass("UISelectRoleView", UIBaseView)
 local MsgIDDefine = require("Net/Config/MsgIDDefine")
 local MsgIDMap = require("Net/Config/MsgIDMap")
 local base = UIBaseView
-
 local RoleButtonsParent="RoleButtons"
 local HaveaRoleRoot="BeSelectedRoot/HaveaRoleRoot"
 local NoRoleRoot="BeSelectedRoot/NoRoleRoot"
@@ -23,7 +31,6 @@ local NoBut=NoRoleRoot.."/NoSubmit"
 local function OnCreate(self)
 	base.OnCreate(self)
 	-- 窗口生命周期内保持的成员变量放这
-
 	self.HaveaRoleRoot=self.transform:Find(HaveaRoleRoot)
 	self.NoRoleRoot=self.transform:Find(NoRoleRoot)
 	self.RoleButtonsParent = self.transform:Find(RoleButtonsParent)
@@ -55,7 +62,8 @@ local function OnCreate(self)
 	--创建按钮
 	self.NoBut:SetOnClick(function ()
 		local tmpMsg = MsgIDMap[MsgIDDefine.CreateRoleNew].argMsg
-     	tmpMsg.type =  (tonumber)(self.index-1)---传从0开始的索引
+		
+     	tmpMsg.type =  RoleBriefInfo_pb[self.index-1]---传从0开始的索引
      	tmpMsg.name = self.NoName:GetText();
      	HallConnector:GetInstance():SendMessage(MsgIDDefine.SelectRoleNew, tmpMsg)
 	end)
@@ -83,16 +91,12 @@ local function SetActivePanel(self,index)
 		self.HaveaRoleRoot.transform.gameObject:SetActive(true)
 		self.NoRoleRoot.transform.gameObject:SetActive(false)
 		self.ShowName:SetText(self.model.RoleListModel[index].name)
-		self.ShowLevel:SetText(self.model.RoleListModel[index].level)
+		self.ShowLevel:SetText(math.ceil(self.model.RoleListModel[index].level))
 		
 		
 	end
 	CS.RoleShow.Init(tonumber(index-1))
 end
-
-
-
-
 
 UISelectRoleView.SetActivePanel = SetActivePanel
 UISelectRoleView.OnCreate = OnCreate
