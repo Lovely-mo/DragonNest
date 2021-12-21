@@ -9,6 +9,7 @@ public class RoleShow : MonoBehaviour
     static SkinnedMeshRenderer skinnd;
     static GameObject play;
     static Texture2D[] texture2;
+    static AnimatorOverrideController _overrideController;
     static List<MySelfConstitute> MySelfconstitute = new List<MySelfConstitute>
     {
         new MySelfConstitute("ZJ_zhanshi_SkinnedMesh","wa_face", "wa_hair01",  "wa_body", "wa_boots", "wa_glove", "wa_leg", "wa_second", "wa_weapon","Point001_zhanshi"),
@@ -23,8 +24,8 @@ public class RoleShow : MonoBehaviour
 
     public static void Init(int index)
     {
-        print(index);
-        print(MySelfconstitute[6].Skeleton);
+        //print(index);
+        print(MySelfconstitute[index].Skeleton);
         Allconstitute = new string[10];
         Allconstitute[0] = MySelfconstitute[index].Skeleton;
         Allconstitute[1] = MySelfconstitute[index].Face;
@@ -45,6 +46,14 @@ public class RoleShow : MonoBehaviour
             GameObject.Destroy(play.gameObject);
         }
         play = Instantiate(Resources.Load<GameObject>("Prefabs/" + Allconstitute[0]));
+        play.GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Controller/Animator/" + Allconstitute[0]);
+        //_overrideController = new AnimatorOverrideController(play.gameObject.GetComponent<Animator>().runtimeAnimatorController);
+        //_overrideController["HI"] = Resources.Load<AnimationClip>("Animation/OverrideClips/" + Allconstitute[0]);
+        //Resources.Load("")
+        //foreach (var item in play.gameObject.GetComponent<Animator>().runtimeAnimatorController.animationClips)
+        //{
+        //    Debug.Log(item);
+        //}
         skinnd = play.GetComponent<SkinnedMeshRenderer>();
         GameObject wep = Instantiate(Resources.Load<GameObject>(path + Allconstitute[Allconstitute.Length - 2]));
         wep.transform.SetParent(play.transform.Find(Allconstitute[Allconstitute.Length - 1]).transform);
